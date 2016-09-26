@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+{{! changing the mustache delimiter so it doesn't conflict with  }}
+{{! the default angularjs delimeters - https://mustache.github.io/mustache.5.html for more info  }}
+{{=<% %>=}}
+-->
+<html lang="en-US" ng-app="TIYMakeChocolateApp">
+<html lang="en">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="../static/js/tiy-ng-controller.js"> </script>
+<script src="js/tiy-ng-controller.js"></script>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" type=" text/css" href="css/styles.css">
+
+    <title>Welcome to the Chocolate Factory</title>
+</head>
+<body ng-controller="SampleController">
+     Willy Wonka Madness
+    <br> <br>
+
+    Unfortunately, our factory is currently under construction
+    <br><br>
+
+        <!--{{testValue}}-->
+
+    <div>
+        <h4> Please tell me how many bigs and smalls you have and enter the goal you would like to make. </h4>
+        <span> Smalls: <input type="text" ng-model="smalls"/></span>
+        <span>Bigs: <input type="text" ng-model="bigs"/></span>
+        <span>Goal: <input type="text" ng-model="goal"/></span>
+        <span> <input type="button" ng-click="chocoMaker(smalls, bigs, goal)" value="Let's make some chocolate ...Ooopa loopa"/></span>
+
+    </div>
+
+     <h4>Inventory</h4>
+     <div ng-repeat="chocIndex in makeArray(bigs)">
+         <div class="choc-big-bar">{{chocIndex + 1}}</div>
+     </div>
+
+     <div ng-repeat="chocIndex in makeArray(smalls)">
+         <div class="choc-small-bar">{{chocIndex + 1}}</div>
+     </div>
+
+    <br><br>
+    <br><br>
+    <br><br>
+     <h4>Solution</h4>
+     <div ng-repeat="chocSolutionIndex in makeArray(mySolution.bigs)">
+         <div class="choc-big-bar">{{chocSolutionIndex + 1}}</div>
+     </div>
+
+     <div ng-repeat="chocSolutionIndex in makeArray(mySolution.smalls)">
+         <div class="choc-small-bar">{{chocSolutionIndex + 1}}</div>
+     </div>
+
+
+</body>
+</html>
